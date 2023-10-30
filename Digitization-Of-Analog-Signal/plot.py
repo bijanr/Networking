@@ -1,9 +1,8 @@
-import matplotlib.pyplot as plt
-import numpy as np
+from noise import *
+from graph import *
 
-def Plot(string, n):
+def Plot(string, n ,minfreq, maxfreq, minamp, maxamp):
     volt_list = [(-n)*(-1)**int(i) for i in string]     # setting upper an lower voltages using the actual string
-    print(f"the list is: {(volt_list)}")
     length  = int(len(volt_list))  # length of actual binary stream
     square_list = []
     for i in range(len(volt_list)-1):   # algorithm for voltage boundary plotting
@@ -40,19 +39,20 @@ def Plot(string, n):
             time_list.append(counter)
             i = i+2
             counter += 1
-    # time_axis = [i for i in range(len(time_list))]
+    
+    if(len(square_list) != len(time_list)):
+        time_list.append(counter)
 
-    ## matplotlib commands
-    plt.xlabel('Time')
-    plt.ylabel('Voltage')
-    plt.title('Binary is : '+ string)
-    originy = [0,0]
-    olen = len(time_list)
-    originx = [0,olen]
-    plt.plot(originx, originy)
-    # plt.plot(time_axis, square_list, marker = 'o')
-    plt.plot(time_list, square_list, marker = 'o')  # plotting the graph
-    plt.show()
+
+    
+    
+    Graph_Generator(square_list, time_list, string)
+    NoiseGen(volt_list, n, string, minfreq, maxfreq, minamp, maxamp)
+    
+    
+
+   
+
     
 
     
