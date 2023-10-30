@@ -1,5 +1,7 @@
 ***RUN THE MAIN.PY FILE***
 
+
+
 INITIALISATION
     string : the binary stream
     binary_list[] : the binary stream in integer array
