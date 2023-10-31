@@ -19,5 +19,4 @@ main.py : all the functions called
 plot.py : algorithm for plotting the graph of high vs low signals
 noise.py : inserts noise inside the graph
 graph.py : main matplotlib code to execute and print all the graphs using the lists from plot.py and noise.py
-
 decoding.py : decodes the graph with noise and finds the error percentage
