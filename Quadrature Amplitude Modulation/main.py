@@ -4,6 +4,7 @@ def Split():
     pass
 Binary_Generator(bit_length)
 Append_Binary(bit_length)
+Plotting(bit_length)
 
 
 print("Binary" + "                  " + "Gray" )
