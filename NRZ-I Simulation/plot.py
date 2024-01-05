@@ -1,9 +1,11 @@
 from noise import *
 from graph import *
 
-def Plot(string, n ,minfreq, maxfreq, minamp, maxamp):
-    volt_list = [(-n)*(-1)**int(i) for i in string]     # setting upper an lower voltages using the actual string
+def Plot(nrz_i, n ,minfreq, maxfreq, minamp, maxamp):
+    volt_list = [(-n)*(-1)**int(i) for i in nrz_i]     # setting upper an lower voltages using the actual string
     length  = int(len(volt_list))  # length of actual binary stream
+
+
     square_list = []
     for i in range(len(volt_list)-1):   # algorithm for voltage boundary plotting
         if(volt_list[i] == -n and volt_list[i+1] == n):
@@ -23,6 +25,7 @@ def Plot(string, n ,minfreq, maxfreq, minamp, maxamp):
         square_list.append(n)
     elif(volt_list[-1] == -n):
         square_list.append(-n)
+
     
 
 
@@ -46,8 +49,8 @@ def Plot(string, n ,minfreq, maxfreq, minamp, maxamp):
 
     
     
-    Graph_Generator(square_list, time_list, string)
-    NoiseGen(volt_list, n, string, minfreq, maxfreq, minamp, maxamp)
+    Graph_Generator(square_list, time_list, nrz_i)
+    NoiseGen(volt_list, n, nrz_i, minfreq, maxfreq, minamp, maxamp)
     
 
 
